@@ -1,0 +1,151 @@
+\section{Álgebra}
+
+\subsection{Propiedades de los números reales}
+
+Algunas de las propiedades más importantes de los números reales.
+
+\subsubsection{Exponentes}
+\begin{align*}
+    x^0 &= 1 \quad \text{si } x \neq 0 \\
+    x^1 &= x \\
+    x^{-1} &= \frac{1}{x} \quad \text{si } x \neq 0 \\
+    x^{m + n} &= x^m x^n \\
+    x^{m - n} &= \frac{x^m}{x^n} \quad \text{si } x \neq 0 \\
+    x^{-1} &= \frac{1}{x} \\
+    x^{mn} &= {(x^m)}^n \\
+    x^{\frac{m}{n}} &= \sqrt[n]{x^m} = {\left(\sqrt[n]{x}\right)}^m \\
+    x^{\frac{1}{n}} &= \sqrt[n]{x}
+\end{align*}
+
+\subsubsection{Logaritmos}
+Recordemos que el logaritmo se define como:
+\[
+    \log_a(b) = c \iff a^c = b
+\]
+Y sus propiedades más importantes son:
+\begin{align*}
+    \log_a(1) &= 0 \\
+    \log_a(a^u) &= u \\
+    a^{\log_a(u)} &= u \\
+    \log_a(a) &= 1 \\
+    \log_a(uv) &= \log_a(u) + \log_a(v) \\
+    \log_a\left(\frac{u}{v}\right) &= \log_a(u) - \log_a(v) \\
+    \log_a(u^n) &= n \log_a(u) \\
+    \log_a(b) &= \frac{\log_c(b)}{\log_c(a)}
+\end{align*}
+
+\subsection{Factorización}
+Algunas fórmulas de factorización importantes.
+\begin{align*}
+    na + nb &= n(a + b) \\
+    a^2 + b^2 &=  {(a + b)}^2 - 2ab = {(a - b)}^2 + 2ab\\
+    a^2 - b^2 &= (a - b)(a + b) \\
+    a^3 + b^3 &= (a + b)(a^2 - ab + b^2) \\
+    a^3 - b^3 &= (a - b)(a^2 + ab + b^2) \\
+\end{align*}
+
+\subsubsection{Completación de cuadrados}
+Para reescribir una expresión cuadrática de la forma \(ax^2 + bx + c\) como un cuadrado perfecto, se utiliza la fórmula:
+\[
+    ax^2 + bx + c = a{\left(x + \frac{b}{2a}\right)}^2 - \frac{b^2 - 4ac}{4a}
+\]
+
+\subsection{Sumatorias}
+Consiste en una forma compacta de expresar la suma de una secuencia de números. Se denota como:
+\[
+    \sum_{i = 1}^n a_i = a_1 + a_2 + \cdots + a_n
+\]
+\subsubsection{Propiedades}
+\begin{align*}
+    \sum_{i = 1}^n c a_i &= c \sum_{i = 1}^n a_i \\
+    \sum_{i = 1}^n(a_i \pm b_i) &= \sum_{i = 1}^n a_i \pm \sum_{i = 1}^n b_i \\
+    \sum_{i = 1}^n a_i &= \sum_{i = 1}^m a_i + \sum_{i = m + 1}^n a_i
+\end{align*}
+
+\subsubsection{Fórmulas de sumatorias}
+Algunas fórmulas de sumatorias importantes son:
+\begin{align*}
+    \sum_{i = 1}^n i &= \frac{n(n + 1)}{2} \\
+    \sum_{i = 1}^n i^2 &= \frac{n(n + 1)(2n + 1)}{6} \\
+    \sum_{i = 1}^n i^3 &= {\left(\frac{n(n + 1)}{2}\right)}^2 \\
+\end{align*}
+
+\subsection{Teorema generalizado del binomio de Newton}
+El teorema generalizado del binomio de Newton establece que para cualquier número real o complejo \(n\) donde \(|y| < |x|\) se tiene que:
+\[    
+{(x + y)}^n = \sum_{k = 0}^{\infty} \binom{n}{k} x^{n - k} y^k 
+\]
+donde \(\binom{n}{k}\) es el coeficiente binomial, que se define como:
+\[
+    \binom{n}{k} = \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k!}
+\]
+Y si \(n\in\mathbb{N}\) entonces podemos reescribir todo como:
+\[    
+{(x + y)}^n = \sum_{k = 0}^{n} \binom{n}{k} x^{n - k} y^k 
+\]
+Y el coeficiente binomial se define como:
+\[
+    \binom{n}{k} = \frac{n!}{k!(n - k)!}
+\]
+
+\subsection{Fracciones parciales}
+Las fracciones parciales permiten descomponer una fracción racional en una suma de fracciones más simples.  
+Este método se usa principalmente para integrar funciones racionales, es decir, cocientes de polinomios.
+
+Dada una fracción racional:
+\[
+\frac{P(x)}{Q(x)}
+\]
+donde \(P(x)\) y \(Q(x)\) son polinomios, se desea expresar como suma de fracciones más simples que se puedan integrar fácilmente.
+
+Si el grado del numerador es mayor o igual al del denominador:
+\[
+\deg P(x) \geq \deg Q(x)
+\]
+entonces se realiza la división polinómica:
+\[
+\frac{P(x)}{Q(x)} = S(x) + \frac{R(x)}{Q(x)}
+\]
+donde \(S(x)\) es el cociente y \(R(x)\) el residuo.  
+Luego se trabaja solo con la parte fraccionaria \(\frac{R(x)}{Q(x)}\).
+
+Se descompone el polinomio \(Q(x)\) en factores lineales y/o cuadráticos irreducibles, por ejemplo:
+\[
+Q(x) = {(x - a)}^m {(x^2 + bx + c)}^n \cdots
+\]
+
+Dependiendo del tipo de factor en el denominador:
+
+\begin{itemize}
+    \item \textbf{Factor lineal simple} \((x - a)\): 
+    \[
+    \frac{A}{x - a}
+    \]
+    
+    \item \textbf{Factor lineal repetido} \({(x - a)}^n\): 
+    \[
+    \frac{A_1}{x - a} + \frac{A_2}{{(x - a)}^2} + \cdots + \frac{A_n}{{(x - a)}^n}
+    \]
+
+    \item \textbf{Factor cuadrático irreducible} \((x^2 + bx + c)\): 
+    \[
+    \frac{Ax + B}{x^2 + bx + c}
+    \]
+
+    \item \textbf{Factor cuadrático repetido} \({(x^2 + bx + c)}^n\): 
+    \[
+    \frac{A_1x + B_1}{x^2 + bx + c} + \frac{A_2x + B_2}{{(x^2 + bx + c)}^2} + \cdots + \frac{A_n x + B_n}{{(x^2 + bx + c)}^n}
+    \]
+\end{itemize}
+
+Pueden usarse factores de mayores grados, pero la idea es que cada término de la fracción parcial sea más simple que el original.
+
+Multiplicamos ambos lados por \(Q(x)\) para eliminar los denominadores:
+\[
+P(x) = \text{(expresión con constantes)}
+\]
+
+\begin{itemize}
+    \item \textbf{Sustitución}: elige valores de \(x\) que simplifiquen la ecuación.
+    \item \textbf{Comparación de coeficientes}: iguala los coeficientes de cada potencia de \(x\).
+\end{itemize}

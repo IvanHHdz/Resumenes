@@ -11,4 +11,5 @@ La carpeta `LaTeX` proporciona los archivos `.tex` con los cuales se crean los d
 
 # Índice
 1. [Matemáticas](./PDFs/Matemáticas/Matemáticas.pdf)
-   1. [Cálculo Multivariable](./PDFs/Matemáticas/Por%20Tema/Cálculo%20multivariable.pdf)
+   1. [Álgebra](./PDFs/Matemáticas/Por%20Tema/Álgebra.pdf)
+   2. [Cálculo Multivariable](./PDFs/Matemáticas/Por%20Tema/Cálculo%20multivariable.pdf)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.15)  29 JUN 2025 13:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.11.15)  29 JUN 2025 13:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -299,17 +299,23 @@ Package hyperref Info: Link coloring OFF on input line 9.
 \@outlinefile=\write3
 \openout3 = `math_part.out'.
 
- (../calculo_multivariable.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
+ (./math_part.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+))
+\tf@toc=\write4
+\openout4 = `math_part.toc'.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]) [4] (./math_part.aux
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (../calculo_multivariable.tex [2] [3] [4]) [5] (./math_part.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -321,18 +327,18 @@ Package rerunfilecheck Info: File `math_part.out' has not changed.
 (rerunfilecheck)             Checksum: 6E8B48DD8E4B616E71539C4ACF662849;2030.
  ) 
 Here is how much of TeX's memory you used:
- 10985 strings out of 474222
- 169093 string characters out of 5748732
- 1939975 words of memory out of 5000000
- 33103 multiletter control sequences out of 15000+600000
+ 10995 strings out of 474222
+ 169219 string characters out of 5748732
+ 1934975 words of memory out of 5000000
+ 33108 multiletter control sequences out of 15000+600000
  561286 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,10n,79p,356b,473s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on math_part.pdf (4 pages, 127916 bytes).
+Output written on math_part.pdf (5 pages, 131332 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
- 18 named destinations out of 1000 (max. 500000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
  105 words of extra memory for PDF output out of 10000 (max. 10000000)
 

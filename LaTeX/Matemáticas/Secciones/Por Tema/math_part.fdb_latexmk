@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1751226203.98567 "/home/ivan-hernandez/Documents/GitHub/Resumenes/LaTeX/Matemáticas/Secciones/Por Tema/math_part.tex" "math_part.pdf" "math_part" 1751226204.72546 0
+["pdflatex"] 1751226448.63288 "/home/ivan-hernandez/Documents/GitHub/Resumenes/LaTeX/Matemáticas/Secciones/Por Tema/math_part.tex" "math_part.pdf" "math_part" 1751226449.36568 0
   "../calculo_multivariable.tex" 1751222481.47732 7239 a8622c1e7a88920b71a90795fff0fcd3 ""
   "/etc/texmf/web2c/texmf.cnf" 1731093653.01389 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/ivan-hernandez/Documents/GitHub/Resumenes/LaTeX/Matemáticas/Secciones/Por Tema/math_part.tex" 1751226203.78892 342 dba6d106f08b9e2d9a7cc56cbe8ed232 ""
+  "/home/ivan-hernandez/Documents/GitHub/Resumenes/LaTeX/Matemáticas/Secciones/Por Tema/math_part.tex" 1751226445.83693 370 bb8e0fdee61e3338fea0339760ea5244 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -83,12 +83,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1731728119.62282 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1731728149 8212815 ef855814869be91f258526fed9b470a8 ""
-  "math_part.aux" 1751226204.64879 1987 6aad343a669ce0116188ff5b66c07b24 "pdflatex"
-  "math_part.out" 1751226204.65079 2030 6e8b48dd8e4b616e71539c4acf662849 "pdflatex"
-  "math_part.tex" 1751226203.78892 342 dba6d106f08b9e2d9a7cc56cbe8ed232 ""
+  "math_part.aux" 1751226449.2972 1987 0dac2537ff613896378419350fb309ff "pdflatex"
+  "math_part.out" 1751226449.2992 2030 6e8b48dd8e4b616e71539c4acf662849 "pdflatex"
+  "math_part.tex" 1751226445.83693 370 bb8e0fdee61e3338fea0339760ea5244 ""
+  "math_part.toc" 1751226449.2992 1160 520cc10168b0c84119eecdb42120ec15 "pdflatex"
   (generated)
   "math_part.aux"
   "math_part.log"
   "math_part.out"
   "math_part.pdf"
+  "math_part.toc"
   (rewritten before read)

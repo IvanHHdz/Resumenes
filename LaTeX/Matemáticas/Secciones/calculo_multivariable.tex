@@ -1,0 +1,176 @@
+\section{Cálculo Multivariable}
+\subsection{Derivadas parciales}
+
+Son las derivadas de funciones de varias variables. 
+Se denotan por:
+\[
+\frac{\partial f}{\partial x} \quad \text{y} \quad \frac{\partial f}{\partial y}
+\]
+
+Estas se leería como ``derivada parcial de \(f\) con respecto a \(x\)'' y ``derivada parcial de \(f\) con respecto a \(y\)'', respectivamente.
+
+Cuando se deriva una función con varias variables, se debe hacer con respecto a una sola de las variables
+Al calcular la derivada con respecto a una variable, el resto se consideran como constantes.
+
+\subsection{Derivada Total}
+Considere una función de varias variables que llamaremos \(z\).
+La derivada total de \(z\), denotada por \(dz\), es la suma de las derivadas parciales de \(z\) con respecto a cada variable, multiplicadas por el diferencial de esa variable.
+
+Por ejemplo, si \(z\) es una función de \(x\) e \(y\), la derivada total se expresa como:
+\[
+dz = \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy
+\]
+
+\subsubsection{Regla de la cadena}
+La regla de la cadena se utiliza para calcular la derivada de una función compuesta.
+Si \(z\) es una función de \(x\) e \(y\), y \(x\) e \(y\) son funciones de \(t\), entonces la derivada total de \(z\) es:
+\[
+dz = \frac{\partial z}{\partial x} \frac{dx}{dt} + \frac{\partial z}{\partial y} \frac{dy}{dt}
+\]
+
+Y si en lugar de depender de \(t\), \(y\) depende de \(u\) y de \(v\), la expresión se convierte en:
+
+\[
+dz = \frac{\partial z}{\partial x} \frac{d x}{d t} dt  + \frac{\partial z}{\partial y}\left(\frac{\partial y}{\partial u} du + \frac{\partial y}{\partial v} dv\right)
+\]
+
+Y así sucesivamente, dependiendo de cuántas variables dependan de otras.
+
+Y si queremos la derivada de \(z\) con respecto a \(t\), podemos escribir:
+\[
+\frac{dz}{dt} = \frac{\partial z}{\partial x} \frac{dx}{dt} + \frac{\partial z}{\partial y} \frac{dy}{dt}
+\]
+
+\subsection{Gradiente}
+El gradiente de una función \(f(x, y)\) es un vector que contiene las derivadas parciales de \(f\) con respecto a cada variable. Se denota como:
+\[
+\nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y} \right)
+\]
+
+Si \(f\) es una función de varias variables, el gradiente se extiende a más dimensiones:
+\[
+\nabla f = \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right)
+\]
+
+\subsection{Derivada direccional}
+La derivada direccional de una función \(f\) en la dirección de un vector unitario \(\vec{u}\) se define como:
+\[
+D_{\vec{u}} f = \nabla f \cdot \vec{u}
+\]
+
+Donde \(\nabla f\) es el gradiente de \(f\) y \(\cdot\) representa el producto punto.
+
+Es importante que el vector \(\vec{u}\) sea unitario, es decir, que su norma sea 1. 
+Si \(\vec{u}\) no es unitario, se puede normalizar dividiendo por su norma.
+
+\subsection{Integrales dobles}
+Las Integrales dobles o integrales iteradas son una extensión de la integral definida a funciones de varias variables.
+Para una función \(f(x, y)\) definida en un dominio \(D\), puede ser de tipo I o II.\ 
+\[
+\int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y)\,dy\,dx
+\]
+
+Siendo esta primera la de tipo I, donde \(g_1(x)\) y \(g_2(x)\) son funciones que definen los límites de integración en \(y\) para cada \(x\) en el intervalo \([a, b]\).
+
+Y la segunda de tipo II, donde \(h_1(y)\) y \(h_2(y)\) son funciones que definen los límites de integración en \(x\) para cada \(y\) en el intervalo \([c, d]\):
+\[
+\int_c^d \int_{h_1(y)}^{h_2(y)} f(x,y)\,dx\,dy
+\]
+
+Para calcular una integral doble, se integra primero con respecto a una variable y luego con respecto a la otra.
+Mientras se integra con respecto a una variable, la otra se considera constante.
+El orden de integración puede cambiar dependiendo de la función y del dominio de integración.
+
+\subsubsection{Teorema de Fubini}
+El teorema de Fubini establece que, bajo ciertas condiciones de continuidad, el orden de integración en una integral doble puede cambiar. 
+Es decir:
+\[
+\iint_R f(x,y) \, dA =\int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y)\,dy\,dx=\int_c^d \int_{h_1(y)}^{h_2(y)} f(x,y)\,dx\,dy
+\]
+
+Donde \(R\) es el dominio de integración y \(dA\) representa el elemento diferencial de área, que se puede expresar como \(dA = dx\,dy\) o \(dA = dy\,dx\), dependiendo del orden de integración.
+
+\subsection{Integrales triples}
+Las integrales triples son una extensión de las integrales dobles a funciones de tres variables.
+Para una función \(f(x, y, z)\) definida en un dominio \(D\), la integral triple se expresa como:
+\[
+\iiint_D f(x, y, z) \, dV
+\]
+
+Donde \(dV\) es el elemento diferencial de volumen, que puede expresarse como
+\(dV = dx\,dy\,dz\), \(dV = dy\,dz\,dx\), o cualquier otra combinación de variables.
+
+Para el cálculo de volúmenes, se pueden utilizar coordenadas cartesianas, cilíndricas o esféricas, dependiendo de la simetría del dominio.
+Además de poderse considerar que \(f(x, y, z) = 1\) y pasar la integral doble a una integral triple, para calcular el volumen del dominio \(D\):
+\[
+V = \iint _R f(x,y) \,dA = \iiint_D f(x,y,z)\,dV
+\]
+
+\subsection{Cambios de coordenadas}
+Los cambios de coordenadas son útiles para simplificar el cálculo de integrales en dominios complicados.
+
+\subsubsection{Integrales dobles}
+Se suelen cambiar de coordenadas cartesianas (o rectangulares) a coordenadas polares, donde:
+\begin{align*}
+x &= r \cos(\theta) \\
+y &= r \sin(\theta)
+\end{align*}
+
+Y viceversa:
+\begin{align*}
+r &= \sqrt{x^2 + y^2} \\
+\theta &= \tan^{-1}\left(\frac{y}{x}\right)
+\end{align*}
+
+El elemento diferencial de área:
+\[
+dA = \underbrace{dx \, dy}_{\text{cartesianas}} = \underbrace{r \, dr \, d\theta}_{\text{polares}}
+\]
+
+\subsubsection{Integrales triples}
+Para integrales triples, se pueden utilizar coordenadas cartesianas (o rectangulares), cilíndricas o esféricas.
+
+En coordenadas cilíndricas, las relaciones son:
+\begin{align*}
+x &= r \cos(\theta) \\
+y &= r \sin(\theta) \\
+z &= z
+\end{align*}
+Y viceversa:
+\begin{align*}
+r &= \sqrt{x^2 + y^2} \\
+\theta &= \tan^{-1}\left(\frac{y}{x}\right) \\
+z &= z
+\end{align*}
+
+En coordenadas esféricas, las relaciones son:
+\begin{align*}
+x &= \rho \sin(\phi) \cos(\theta) \\
+y &= \rho \sin(\phi) \sin(\theta) \\
+z &= \rho \cos(\phi)
+\end{align*}
+Y viceversa:
+\begin{align*}
+\rho &= \sqrt{x^2 + y^2 + z^2} \\
+\phi &= \cos^{-1}\left(\frac{z}{\sqrt{x^2 + y^2 + z^2}}\right) \\
+\theta &= \tan^{-1}\left(\frac{y}{x}\right)
+\end{align*}
+
+Y el elemento diferencial de volumen:
+\[
+dV = \underbrace{dx \, dy \, dz}_{\text{cartesianas}} = \underbrace{r \, dr \, d\theta \, dz}_{\text{cilíndricas}} = \underbrace{\rho^2 \sin(\phi) \, d\rho \, d\phi \, d\theta}_{\text{esféricas}}
+\]
+
+\subsection{Cálculo de áreas y volúmenes}
+Para calcular áreas y volúmenes, se utilizan integrales dobles y triples, respectivamente.
+Para el área de una región \(R\) en el plano, se utiliza la integral doble:
+\[
+A = \iint_R dA
+\]
+Para el volumen de un sólido \(D\) en el espacio, se utiliza la integral triple:
+\[
+V = \iiint_D dV
+\]
+
+En estos casos \(R\) y \(D\) son los dominios de integración en el plano y en el espacio, respectivamente.
+Lo que quiere decir que representan regiones o sólidos normalmente delimitados por funciones o superficies.

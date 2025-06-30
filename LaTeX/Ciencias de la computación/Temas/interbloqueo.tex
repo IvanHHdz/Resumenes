@@ -1,0 +1,56 @@
+\section{Demostración de Prevención de Interbloqueo mediante un Algoritmo de Asignación Atómica}
+\subsection{Planteamiento}
+
+Sea \( R \) el conjunto de recursos de un sistema de computación multiprocesado y multiprogramado, y sea \( H \) el conjunto de procesos (o hilos) que pueden ejecutarse en el sistema.
+
+Definimos un algoritmo \( A \) con las siguientes propiedades:
+
+\begin{enumerate}
+    \item Todo proceso debe pasar por \( A \) para solicitar recursos.
+    \item \( A \) verifica, de forma atómica, si todos los recursos requeridos por el proceso están disponibles.
+    \item Si están disponibles, se le conceden todos a la vez.
+    \item Si no están disponibles, el proceso espera sin obtener ningún recurso.
+    \item Si un proceso necesita más recursos después, debe liberar todos los que ya posee y volver a solicitarlos desde cero a través de \( A \).
+    \item \( A \) actúa como un \textbf{monitor}: solo un proceso puede estar dentro de él a la vez.
+\end{enumerate}
+
+\bigskip
+
+Queremos demostrar que con este algoritmo es \textbf{imposible que ocurra un interbloqueo (deadlock)}.
+
+\subsection{Demostración por inducción sobre el número de procesos}
+
+\subsubsection{Caso base: \( P(1) \)}
+
+Supongamos que hay un único proceso \( p_1 \) que solicita un conjunto de recursos.
+
+Como es el único proceso en el sistema, todos los recursos están disponibles. Entonces, el algoritmo \( A \) le asigna todos los recursos necesarios.
+
+\textbf{Conclusión:} No hay espera ni bloqueo. El sistema no presenta interbloqueo.
+
+\subsubsection{Hipótesis inductiva: \( P(k) \)}
+
+Supongamos que con \( k \) procesos en ejecución, utilizando el algoritmo \( A \), no se produce interbloqueo.
+
+\subsubsection{Paso inductivo: \( P(k+1) \)}
+
+Agregamos un proceso más: \( p_{k+1} \). Este entra al algoritmo \( A \) para solicitar un conjunto de recursos.
+
+\begin{itemize}
+    \item Si todos los recursos que necesita están disponibles, se le conceden de inmediato. No hay bloqueo.
+    \item Si alguno no está disponible, no se le concede ninguno, y espera fuera del monitor sin retener recursos.
+\end{itemize}
+
+Además, si otro proceso \( p_c \) quiere recursos adicionales, debe liberarlos todos antes de hacer una nueva solicitud, lo cual evita la retención y espera.
+
+Esto impide la formación de cadenas de espera circulares, condición necesaria para que ocurra un interbloqueo.
+
+\textbf{Conclusión:} Al agregar un proceso más, el sistema sigue libre de interbloqueo.
+
+\subsubsection{Conclusión final}
+
+Por el principio de inducción matemática, se concluye que:
+
+\begin{center}
+\textbf{Ningún conjunto finito de procesos que usen el algoritmo \( A \) puede entrar en interbloqueo.}
+\end{center}

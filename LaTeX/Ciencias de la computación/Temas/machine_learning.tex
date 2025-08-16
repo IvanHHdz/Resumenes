@@ -1,0 +1,184 @@
+\section{Aprendizaje Supervisado}
+
+\subsection{Clasificación binaria}
+
+Tenemos un dataset de pares clasificados tales que:
+
+\[
+    D = \{(x_1, y_1), (x_2, y_2) \dots (x_n, y_n)\}
+\]
+
+Donde:
+
+\[
+    y_i \in \{-1, +1\}
+\]
+
+$x_i$ puede ser cualquier cosa. 
+Y en caso que $x_i \notin \mathbb{R} ^ d$, entonces se aplicará una transformación por medio de una función $\varphi : \mathbb{D} \to \mathbb{R} ^ d$, considerando que $x_i \in \mathbb{D}$ para poder tener una entrada $x'_i \in \mathbb{R}^d$.
+
+\subsubsection{Función de hipótesis}
+
+Para realizar las predicciones, necesitaremos una \textbf{función de hipótesis} $h$, la cual obtendremos tras usar un algoritmo de aprendizaje en un conjunto de funciones $\mathcal{H}$.
+Este conjunto de funciones $\mathcal{H}$ puede tener funciones de cualquier tipo.
+Nuestro propósito es encontrar una $h$ de un dado $\mathcal{H}$ que se ajuste lo mejor posible a nuestro dataset.
+
+\begin{tikzpicture}[node distance=2cm]
+    % Nodos
+    \node (start) [startstop] {Data};
+    \node (pro1) [process, below of=start] {Algoritmo de Aprendizaje};
+    \node (end) [startstop, below of=pro1] {$h$ con $h\in \mathcal{H}$};
+
+    % Flechas
+    \draw [arrow] (start) -- (pro1);
+    \draw [arrow] (pro1) -- (end);
+\end{tikzpicture}
+
+\subsubsection{Función de Pérdida}
+
+Nos ayuda a saber si nuestra predicción fue acertada, o no. 
+Esta función la denotaremos de la siguiente manera:
+
+\[
+    L(g, a)
+\]
+
+Donde $g$ es nuestra predicción y $a$ es el valor real.
+
+Existen muchas funciones de pérdida para casos distintos, por ahora, enfoquémonos en las siguientes:
+
+\textbf{$0$ --- $1$ Loss}
+
+\[
+    L(g, a) = 
+    \begin{cases}
+        1   &   g \neq a \\
+        0   &   g = a
+    \end{cases}
+\]
+
+\textbf{Squared Loss}
+
+\[
+    L(g, a) = {(g - a)}^2
+\]
+
+\textbf{Linear Loss}
+
+\[
+    L(g, a) = |g - a|
+\]
+
+\textbf{Asymmetric Loss}
+
+\[
+    L(g, a) = 
+    \begin{cases}
+        1   &   g = 1 \, \land \, a = -1 \\
+        10  &   g = -1 \, \land \, a = 1 \\
+        0   &   \text{else}
+    \end{cases}
+\]
+
+\subsubsection{Error}
+
+Podemos medir que tan bien se desempeña nuestro modelo con los datos con los que lo entrenamos por medio del \textbf{error de entrenamiento} (\textit{training error}):
+\[
+    \mathcal{E}_n (h) = \frac{1}{n} \sum_{i = 1}^{n} L(h(x_i), y_i)
+\]
+
+En donde $n$ es la cantidad de datos que utilizamos para entrenar el modelo, $L$ es la función de pérdida, $h$ es nuestro modelo (la función de hipótesis), y $x_i$ con $y_i$ son un par ordenado de nuestro dataset.
+
+De igual forma, puesto que normalmente se deja una parte de los datos separada para pruebas, el \textbf{error de pruebas} (\textit{test error}) se puede calcular con:
+
+\[
+    \mathcal{E} (h) = \frac{1}{n} \sum_{i = 1}^{n} L(h(x_i), y_i)
+\]
+
+En donde $n$ es la cantidad de datos que guardamos para probar nuestro modelo, $L$ es la función de pérdida, $h$ es nuestro modelo (la función de hipótesis), y $x_i$ con $y_i$ son un par ordenado de nuestro dataset.
+Es importante mencionar que los datos de prueba no deben ser iguales ni incluir datos que se hayan usado para entrenar el modelo.
+La idea es que sean datos que el modelo no haya visto aún.
+
+\subsection{Clasificador Lineal}
+
+En este caso tendremos un conjunto de funciones:
+\[
+    \mathcal{H} = \{
+        h(x; \theta, \theta_0) \quad \text{s.t.} \quad \theta \in \mathbb{R} ^ d \quad \land \quad \theta_0 \in \mathbb{R}
+    \}
+\]
+
+Por lo que estaremos buscando las $\theta$ y $\theta_0$ que mejor se ajusten a nuestro dataset.
+
+También, consideraremos que:
+\[
+    h(x; \theta, \theta_0) = sign(\theta \cdot x + \theta_0) = \begin{cases}
+        +1  &   \theta \cdot x + \theta_0 > 0   \\
+        -1  &   \text{else}
+    \end{cases}
+\]
+
+En otras palabras:
+
+\[
+    h: \mathbb{R}^d \to \{-1, +1\} \quad \text{s.t.} \quad h \in \mathcal{H}
+\]
+
+Y ahora necesitamos un algoritmo que selecciones una buena $h$.
+
+\subsubsection{Algoritmo aleatorio de clasificación lineal (RLC)}
+
+\textit{Random Linear Classifier (RLC)} consiste, como su nombre indica, a buscar de forma aleatoria y elegir el que mejor funciones.
+
+\begin{algorithm}
+    \caption{\textit{Random Linear Classifier}}
+    \begin{algorithmic}[1]
+            \Procedure{RLC}{$\mathcal{D}={\{(x_i,y_i)\}}_{i=1}^n$, $k$} 
+            \For{$j = 1 \to k$}
+                \State$\theta_{(j)} \gets \text{random}(\mathbb{R}^d)$ \Comment{Vector aleatorio en $\mathbb{R}^d$}
+                \State$\theta_{0(j)} \gets \text{random}(\mathbb{R})$ \Comment{Escalar aleatorio}
+            \EndFor{}
+            \State$j^* \gets \arg\min_{j \in \{1, \dots, k\}} \mathcal{E}_n(\theta_{(j)}, \theta_{0(j)})$ \Comment{Selecciona el mejor clasificador}
+            \State\Return$(\theta_{(j^*)}, \theta_{0(j^*)})$ \Comment{Retorna parámetros óptimos}
+    \EndProcedure$ $
+    \end{algorithmic}
+\end{algorithm}
+
+No es necesario explicar mucho. 
+El algoritmo prueba $k$ veces con datos aleatorios y retorna aquellas $(\theta, \theta_{0})$ que poseen menor error.
+
+\subsubsection{Algoritmo del Perceptrón}
+
+Siguiendo con otro algoritmo de clasificación binaria, ahora el algoritmo del perceptrón. 
+Igual que antes, es para un dataset $D = \{(x_1, y_1), \cdots (x_n, y_n)\}$ donde $x_i \in \mathbb{R}^d$ y $y \in \{-1, +1\}$.
+
+Lo que hace el algoritmo del perceptrón consiste en variar los parámetros de acuerdo a los fallos de estos.
+Si falla, se actualiza.
+
+\begin{algorithm}
+    \caption{\textit{Perceptron Algorithm}}
+    \begin{algorithmic}[1]
+            \Procedure{Perceptron}{$\mathcal{D}={\{(x_i,y_i)\}}_{i=1}^n$, $k$}
+            \State$\theta \gets [0, 0, \dots 0]$ \Comment{Inicializa $\theta$ en $\mathbb{R}^d$}
+            \State$\theta_0 \gets 0$ \Comment{Inicializa $\theta_0$ en $\mathbb{R}$}
+            \For{$t = 1 \to k$}
+                \For{$i = 1 \to n$}
+                    \If{$y_{(i)} \cdot (\theta \cdot x_{(i)} + \theta_0) \leq 0$}
+                        \State$\theta \gets \theta + y_{(i)} \cdot x_{(i)}$
+                        \State$\theta_0 \gets \theta_0 + y_{(0)}$
+                    \EndIf{}
+                \EndFor{}
+            \EndFor{}
+            \State\Return$(\theta, \theta_{0})$ \Comment{Retorna parámetros óptimos}
+    \EndProcedure$ $
+    \end{algorithmic}
+\end{algorithm}
+
+Para hacer esto, utiliza internamente una función de pérdida en el condicional de la línea $4$:
+\[
+    L((\theta \cdot x_{(i)} + \theta_0), y_{(i)}) = \begin{cases}
+        (\theta \cdot x_{(i)} + \theta_0) > 0 \quad \land \quad y_{(i)} = +1   &   \text{false}\\
+        (\theta \cdot x_{(i)} + \theta_0) < 0 \quad \land \quad y_{(i)} = -1   &   \text{false}\\
+        \text{else} &   \text{true}
+    \end{cases}
+\]

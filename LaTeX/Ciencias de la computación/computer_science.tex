@@ -1,10 +1,26 @@
-\documentclass{article}
+\documentclass{book}
 
-\usepackage[utf8]{inputenc}     % Codificación
-\usepackage[spanish]{babel}     % Idioma español
-\usepackage{amsmath, amssymb}   % Símbolos matemáticos
-\usepackage{graphicx}          % Imágenes
-\usepackage{hyperref}          % Hipervínculos
+\usepackage{tikz}                              % Gráficos vectoriales y diagramas
+\usepackage{algorithm}                         % Entorno para algoritmos (título y numeración)
+\usepackage{algpseudocode}                     % Escribir pseudocódigo dentro de "algorithm"
+\usepackage[T1]{fontenc}                       % Codificación de salida de fuentes (acentos y separación correcta)
+\usepackage{float}                             % Control estricto de flotantes (ej. opción [H])
+\usepackage[utf8]{inputenc}                    % Codificación de entrada (escribir ñ, á, etc.)
+\usepackage[spanish]{babel}                    % Traducción de términos automáticos y reglas tipográficas en español
+\usepackage{amsmath, amssymb, mathtools}       % Herramientas matemáticas y símbolos adicionales
+\usepackage{graphicx}                          % Inserción y manipulación de imágenes
+\usepackage{hyperref}                          % Hipervínculos y metadatos en el PDF
+
+\renewcommand{\listalgorithmname}{Lista de Algoritmos}
+
+\usetikzlibrary{shapes, arrows, positioning}
+\tikzset{
+    startstop/.style = {rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=red!30},
+    process/.style = {rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30},
+    decision/.style = {diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30},
+    io/.style = {trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=yellow!30},
+    arrow/.style = {thick,->,>=stealth}
+}
 
 \title{Computer Science}
 \author{}
@@ -14,12 +30,14 @@
 
 \maketitle
 
-\newpage
-
 \tableofcontents
 
-\newpage
+\listofalgorithms{}
 
+\chapter{Machine Learning}
+\input{Temas/machine_learning.tex}
+
+\chapter{Interbloqueo}
 \input{Temas/interbloqueo.tex}
 
 \end{document}
